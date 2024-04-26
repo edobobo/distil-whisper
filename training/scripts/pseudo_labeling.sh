@@ -1,14 +1,14 @@
 accelerate launch run_pseudo_labelling.py \
   --model_name_or_path "openai/whisper-large-v3" \
-  --dataset_name "mozilla-foundation/common_voice_16_1" \
+  --dataset_name "facebook/voxpopuli" \
   --dataset_config_name "it" \
   --dataset_split_name "train+validation+test" \
-  --text_column_name "sentence" \
-  --id_column_name "path" \
-  --output_dir "./common_voice_16_1_it_pseudo_labelled" \
+  --text_column_name "raw_text" \
+  --id_column_name "audio_id" \
+  --output_dir "./voxpopuli_it_pseudo_labelled" \
   --per_device_eval_batch_size 16 \
   --dtype "bfloat16" \
-  --attn_implementation "sdpa" \
+  --attn_implementation "eager" \
   --logging_steps 500 \
   --max_label_length 256 \
   --concatenate_audio \

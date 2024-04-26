@@ -1049,7 +1049,7 @@ def main():
 
     num_workers = data_args.preprocessing_num_workers
     dataloader_num_workers = training_args.dataloader_num_workers
-    prefetch_factor = training_args.dataloader_prefetch_factor
+    prefetch_factor = 2  # training_args.dataloader_prefetch_factor
 
     metric = evaluate.load("wer")
     normalizer = (
